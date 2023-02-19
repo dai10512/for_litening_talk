@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,7 +12,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -120,12 +122,16 @@ class _DebugPageState extends State<DebugPage> {
 
               children: [
                 _debugButton(
-                  'Flutter学習にChatGPTを使ってみる',
-                  () {},
+                  'スキルレベル',
+                  () {
+                    Get.to(const WebviewPage(webview: Webview.findy));
+                  },
                 ),
                 _debugButton(
-                  'Flutter学習にFlutterを使ってみる',
-                  () {},
+                  'Flutter学習にChatGPTを使ってみる',
+                  () {
+                    Get.to(const WebviewPage(webview: Webview.chatGPT));
+                  },
                 ),
                 _debugButton(
                   'Flutter学習にFlutterを使ってみる',
@@ -162,5 +168,37 @@ class _DebugPageState extends State<DebugPage> {
         child: Text(text),
       ),
     );
+  }
+}
+
+enum Webview {
+  chatGPT('https://chat.openai.com/chat'),
+  findy('https://findy-code.io/share_profiles/yiPGaVBeMDU1Q');
+
+  const Webview(this.url);
+  final String url;
+}
+
+class WebviewPage extends StatefulWidget {
+  const WebviewPage({super.key, required this.webview});
+
+  final Webview webview;
+  @override
+  State<WebviewPage> createState() => _WebviewPageState();
+}
+
+class _WebviewPageState extends State<WebviewPage> {
+  final controller = WebViewController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    controller.loadRequest(Uri.parse(widget.webview.url));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(body: WebViewWidget(controller: controller));
   }
 }
