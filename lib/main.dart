@@ -104,49 +104,57 @@ class _DebugPageState extends State<DebugPage> {
     return Scaffold(
       body: SafeArea(
         child: Center(
-          child: GridView.count(
-            // 横1行あたりに表示するWidgetの数
-            crossAxisCount: 4,
-            // Widget間のスペース（左右）
-            crossAxisSpacing: 4,
-            // Widget間のスペース（上下）
-            mainAxisSpacing: 4,
-            // 全体の余白
-            padding: const EdgeInsets.all(24),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 24),
+            child: GridView.count(
+              shrinkWrap: true,
+              // 横1行あたりに表示するWidgetの数
+              crossAxisCount: 3,
+              // Widget間のスペース（左右）
+              crossAxisSpacing: 4,
+              // Widget間のスペース（上下）
+              mainAxisSpacing: 4,
+              // 全体の余白
+              // padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+              childAspectRatio: 5 / 3,
 
-            children: [
-              _debugButton(
-                'Flutter学習にFlutterを使ってみる',
-                () {},
-              ),
-              _debugButton(
-                'Flutter学習にFlutterを使ってみる',
-                () {},
-              ),
-              _debugButton(
-                'Flutter学習にFlutterを使ってみる',
-                () {},
-              ),
-              _debugButton(
-                'Flutter学習にFlutterを使ってみる',
-                () {},
-              ),
-              _debugButton(
-                'Flutter学習にFlutterを使ってみる',
-                () {},
-              ),
-              _debugButton(
-                'Flutter学習にFlutterを使ってみる',
-                () {},
-              ),
-            ],
+              children: [
+                _debugButton(
+                  'Flutter学習にChatGPTを使ってみる',
+                  () {},
+                ),
+                _debugButton(
+                  'Flutter学習にFlutterを使ってみる',
+                  () {},
+                ),
+                _debugButton(
+                  'Flutter学習にFlutterを使ってみる',
+                  () {},
+                ),
+                _debugButton(
+                  'Flutter学習にFlutterを使ってみる',
+                  () {},
+                ),
+                _debugButton(
+                  'Flutter学習にFlutterを使ってみる',
+                  () {},
+                ),
+                _debugButton(
+                  'Flutter学習にFlutterを使ってみる',
+                  () {},
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  _debugButton(String text, VoidCallback aa) {
+  _debugButton(
+    String text,
+    VoidCallback aa,
+  ) {
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: ElevatedButton(
