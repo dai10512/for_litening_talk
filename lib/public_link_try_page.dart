@@ -17,30 +17,62 @@ class _PublicLinkTryPageState extends ConsumerState<PublicLinkTryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('public linkを試してみよう'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 32.0),
-        child: SingleChildScrollView(
-          child: Center(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 16),
-                const Text('1 参加者：iosでTestFlightアプリをDL'),
-                const SizedBox(height: 16),
-                const Text('2 登壇者：テスト用URLをコピペ'),
-                TextFormField(
-                  onFieldSubmitted: (newValue) =>
-                      ref.read(urlProvider.notifier).getNewValue(newValue),
-                ),
-                const SizedBox(height: 16),
-                const Text('3 参加者：QRコードをスキャン'),
-                const SizedBox(height: 24),
-                _buildQRcodeSpace(),
-              ],
-            ),
+      // appBar: AppBar(
+      //   title: const Text('public linkを試してみよう'),
+      // ),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 32.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 32),
+              Text(
+                'Public Linkを試してみよう！',
+                style: Theme.of(context).textTheme.headlineSmall,
+                textAlign: TextAlign.start,
+              ),
+              const SizedBox(height: 24),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    flex: 3,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            ''
+                            '1 参加者：iosでTestFlightアプリをDL',
+                          ),
+                          const SizedBox(height: 16),
+                          const Text('2 登壇者：テスト用URLをコピペ'),
+                          TextFormField(
+                            onFieldSubmitted: (newValue) => ref
+                                .read(urlProvider.notifier)
+                                .getNewValue(newValue),
+                          ),
+                          const SizedBox(height: 16),
+                          const Text('3 参加者：QRコードをスキャン'),
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 70),
+                  Expanded(
+                    flex: 2,
+                    // padding: const EdgeInsets.symmetric(horizontal: 200.0),
+                    child: _buildQRcodeSpace(),
+                  ),
+                ],
+              ),
+              const Expanded(child: SizedBox.shrink()),
+
+              // const SizedBox(height: 40),
+              // const SizedBox(width: 30),
+            ],
           ),
         ),
       ),
@@ -50,12 +82,20 @@ class _PublicLinkTryPageState extends ConsumerState<PublicLinkTryPage> {
   Widget _buildQRcodeSpace() {
     final url = ref.watch(urlProvider);
     return ref.watch(urlProvider).isNotEmpty
-        ? QrImage(
-            data: url,
-            version: QrVersions.auto,
-            size: MediaQuery.of(context).size.width,
+        ? Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+            child: QrImage(
+              data: url,
+              version: QrVersions.auto,
+              // size: MediaQuery.of(context).size.width,
+            ),
           )
         : const SizedBox.shrink();
+    // return QrImage(
+    //   data: url,
+    //   version: QrVersions.auto,
+    //   // size: MediaQuery.of(context).size.width,
+    // );
   }
 }
 
