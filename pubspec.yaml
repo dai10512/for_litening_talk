@@ -38,6 +38,8 @@ dependencies:
   flutter_native_splash: ^2.2.17
   get:
   webview_flutter: ^4.0.2
+  qr_flutter: ^4.0.0
+  flutter_riverpod: ^2.2.0
 
 
 dev_dependencies:
@@ -96,10 +98,10 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
   
-flutter_native_splash:
-  color: "#42a5f5" #当面は分かりやすいように色をつける
-  image: assets/images/logo.png
-  fullscreen: true
-  android_12: #Android12以降は別扱いとなっている
-    image: assets/images/logo.png #サイズ違いなどで出力されておらず、要修正
-    color: "#42a5f5"
+# flutter_native_splash:
+#   color: "#42a5f5" #当面は分かりやすいように色をつける
+#   image: assets/images/logo.png
+#   fullscreen: true
+#   android_12: #Android12以降は別扱いとなっている
+#     image: assets/images/logo.png #サイズ違いなどで出力されておらず、要修正
+#     color: "#42a5f5"
