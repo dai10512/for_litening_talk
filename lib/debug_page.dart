@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'public_link_page.dart';
+import 'public_link_explain_page.dart';
 import 'web_view_page.dart';
 
 class DebugPage extends StatefulWidget {
@@ -57,7 +57,7 @@ class _DebugPageState extends State<DebugPage> {
                 _debugButton(
                   'public linkを使ってみる',
                   () {
-                    Get.to(const PublicLinkPage());
+                    Get.to(const PublicLinkExplainPage());
                   },
                 ),
                 _debugButton(
