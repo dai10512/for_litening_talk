@@ -2,14 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
-class PublicLinkPage extends ConsumerStatefulWidget {
-  const PublicLinkPage({super.key});
+class PublicLinkTryPage extends ConsumerStatefulWidget {
+  const PublicLinkTryPage({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _PublicLinkPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() =>
+      _PublicLinkTryPageState();
 }
 
-class _PublicLinkPageState extends ConsumerState<PublicLinkPage> {
+class _PublicLinkTryPageState extends ConsumerState<PublicLinkTryPage> {
+  final comment = '''実際の現場では、エンジニアはもちろん、非エンジニアであるクライアント様などもいます。'
+      'アプリ開発の進行状況を実際に手元でアプリとして動かして確認したい、というニーズがあります。 ''';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +21,7 @@ class _PublicLinkPageState extends ConsumerState<PublicLinkPage> {
         title: const Text('public linkを試してみよう'),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 56.0),
+        padding: const EdgeInsets.symmetric(horizontal: 32.0),
         child: SingleChildScrollView(
           child: Center(
             child: Column(
@@ -34,7 +38,7 @@ class _PublicLinkPageState extends ConsumerState<PublicLinkPage> {
                 const SizedBox(height: 16),
                 const Text('3 参加者：QRコードをスキャン'),
                 const SizedBox(height: 24),
-                _buildQrcodeSpace(),
+                _buildQRcodeSpace(),
               ],
             ),
           ),
@@ -43,7 +47,7 @@ class _PublicLinkPageState extends ConsumerState<PublicLinkPage> {
     );
   }
 
-  Widget _buildQrcodeSpace() {
+  Widget _buildQRcodeSpace() {
     final url = ref.watch(urlProvider);
     return ref.watch(urlProvider).isNotEmpty
         ? QrImage(
