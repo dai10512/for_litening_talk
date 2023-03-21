@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 
-import 'debug_page.dart';
+import 'menu_page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,7 +40,7 @@ class TopPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: GestureDetector(
-          onTap: () => Get.to(const DebugPage()),
+          onTap: () => Get.to(const MenuPage()),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,

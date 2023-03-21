@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:for_litening_talk/chatgpt_explain_page.dart';
 import 'package:get/get.dart';
 
 import 'public_link_explain_page.dart';
 import 'web_view_page.dart';
 
-class DebugPage extends StatefulWidget {
-  const DebugPage({super.key});
+class MenuPage extends StatefulWidget {
+  const MenuPage({super.key});
 
   @override
-  State<DebugPage> createState() => _DebugPageState();
+  State<MenuPage> createState() => _MenuPageState();
 }
 
-class _DebugPageState extends State<DebugPage> {
+class _MenuPageState extends State<MenuPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,20 +41,9 @@ class _DebugPageState extends State<DebugPage> {
                     );
                   },
                 ),
-                _debugButton(
-                  'Flutter学習にChatGPTを使ってみる',
-                  () {
-                    Get.to(
-                      const WebviewPage(
-                        webview: Webview.chatGPT,
-                      ),
-                    );
-                  }
-                ),
-                // ログイン認証方法
-                // bottomNavigation
-                // package ×
-                // 最新じゃない
+                _debugButton('Flutter学習にChatGPTを使ってみる', () {
+                  Get.to(const ChatGptExplainPage());
+                }),
                 _debugButton(
                   'public linkを使ってみる',
                   () {
