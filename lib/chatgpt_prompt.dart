@@ -48,8 +48,6 @@ class _ChatGptPromptPageState extends ConsumerState<ChatGptPromptPage> {
                           SelectableText(
                               '・アクセストークンとリフレッシュトークンを利用したログイン機能を実装したいので、ロジックのサンプルを書いてください'),
                           SizedBox(height: 16),
-                          SelectableText(
-                              '・const spaceH1 = SizedBox(height:1)とします。spaceH1からspaceH100まで同様のコードを書いてください'),
                         ],
                       ),
                     ),
