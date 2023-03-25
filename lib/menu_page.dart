@@ -56,6 +56,18 @@ class _MenuPageState extends State<MenuPage> {
                     Get.to(const WebviewPage(webview: Webview.firstTask));
                   },
                 ),
+                _debugButton(
+                  'Pentagon',
+                  () {
+                    Get.to(const WebviewPage(webview: Webview.pentagon));
+                  },
+                ),
+                _debugButton(
+                  'Twitter',
+                  () {
+                    Get.to(const WebviewPage(webview: Webview.twitter));
+                  },
+                ),
               ],
             ),
           ),

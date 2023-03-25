@@ -5,7 +5,10 @@ enum Webview {
   chatGPT('https://chat.openai.com/chat'),
   findy('https://findy-code.io/share_profiles/yiPGaVBeMDU1Q'),
   firstTask('https://zenn.dev/articles/bc99f9cc42fa13/edit'),
-  appStoreConnect('https://appstoreconnect.apple.com/apps');
+  appStoreConnect('https://appstoreconnect.apple.com/apps'),
+  pentagon('https://pentagon.tokyo/'),
+  twitter('https://twitter.com/osanaiks/'),
+  ;
 
   const Webview(this.url);
   final String url;
