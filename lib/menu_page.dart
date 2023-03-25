@@ -5,14 +5,9 @@ import 'package:get/get.dart';
 import 'public_link_explain_page.dart';
 import 'web_view_page.dart';
 
-class MenuPage extends StatefulWidget {
+class MenuPage extends StatelessWidget {
   const MenuPage({super.key});
 
-  @override
-  State<MenuPage> createState() => _MenuPageState();
-}
-
-class _MenuPageState extends State<MenuPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
