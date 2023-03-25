@@ -26,7 +26,9 @@ class _WebviewPageState extends State<WebviewPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    controller.loadRequest(Uri.parse(widget.webview.url));
+    controller
+      ..loadRequest(Uri.parse(widget.webview.url))
+      ..enableZoom(true);
   }
 
   @override
